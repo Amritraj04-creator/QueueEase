@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
+import clsx from "clsx"
 
 function Navbar() {
+    const baseNavStyle =
+  "px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200"
+  const getNavLinkClass = ({ isActive }) =>
+ clsx(
+  baseNavStyle,
+  isActive && "bg-white text-blue-600 shadow-md"
+)
   return (
     <nav className="w-full bg-blue-600 text-white shadow-md">
       <div className="flex justify-between items-center px-6 py-4">
@@ -10,26 +19,27 @@ function Navbar() {
 
         <div className="flex gap-4 items-center">
 
-  <Link to="/" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer"
+  <NavLink to="/" end
+  className={getNavLinkClass}
 >
   Home
-</Link>
+</NavLink>
 
-  <Link to="/about" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <NavLink to="/about" className={getNavLinkClass}>
     About
-  </Link>
+  </NavLink>
 
-  <Link to="/login" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <NavLink to="/login" className={getNavLinkClass}>
     Login
-  </Link>
+  </NavLink>
 
-  <Link to="/signup" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <NavLink to="/signup" className={getNavLinkClass}>
     Sign Up
-  </Link>
+  </NavLink>
 
-  <Link to="/register-clinic" className="px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-gray-200 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <NavLink to="/register-clinic" className={getNavLinkClass}>
     Register Clinic
-  </Link>
+  </NavLink>
 
 </div>
       </div>
