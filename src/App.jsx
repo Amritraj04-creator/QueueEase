@@ -7,11 +7,14 @@ import About from "./pages/About"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import RegisterClinic from "./pages/RegisterClinic"
+import Footer from "./components/Footer"
 
 function App() {
   return (
     <>
+    <div className="flex flex-col min-h-screen">
     <Navbar />
+    <main className="grow">
      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -23,6 +26,9 @@ function App() {
       <h1 className="text-4xl font-bold text-blue-600">
         Welcome to QueueEase
       </h1>
+    </div>
+    </main>
+    <Footer />
     </div>
     </>
   )
