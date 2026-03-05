@@ -22,11 +22,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/register-clinic" element={<RegisterClinic />} />
       </Routes>
-    <div className="text-center mt-20">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Welcome to QueueEase
-      </h1>
-    </div>
     </main>
     <Footer />
     </div>

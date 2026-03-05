@@ -1,5 +1,15 @@
+import Hero from "../components/Hero"
+import Features from "../components/Features"
+import HowItWorks from "../components/HowItWorks"
+
 function Home() {
-  return <h1 className="text-3xl p-10">Home Page</h1>
+  return (
+    <>
+      <Hero />
+      <Features />
+      <HowItWorks />
+    </>
+  )
 }
 
 export default Home

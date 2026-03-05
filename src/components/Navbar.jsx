@@ -14,9 +14,9 @@ function Navbar() {
   return (
     <nav className="w-full bg-blue-600 text-white shadow-md">
       <div className="flex justify-between items-center px-6 py-4">
-        <h1 className="text-xl font-bold">
+        <a href="/" end className="text-xl font-bold  hover:scale-105  transform transition duration-200">
           QueueEase
-        </h1>
+        </a>
 
         <div className="flex gap-4 items-center">
 
