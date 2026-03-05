@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import { NavLink } from "react-router-dom"
 import clsx from "clsx"
+import { cn } from "../utils/cn"
 
 function Navbar() {
     const baseNavStyle =
   "px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200"
   const getNavLinkClass = ({ isActive }) =>
- clsx(
+ cn(
   baseNavStyle,
   isActive && "bg-white text-blue-600 shadow-md"
 )
