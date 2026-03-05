@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Navbar() {
   return (
     <nav className="w-full bg-blue-600 text-white shadow-md">
@@ -8,26 +10,26 @@ function Navbar() {
 
         <div className="flex gap-4 items-center">
 
-  <a href="#" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer"
+  <Link to="/" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer"
 >
   Home
-</a>
+</Link>
 
-  <a href="#" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <Link to="/about" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
     About
-  </a>
+  </Link>
 
-  <a href="#" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <Link to="/login" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
     Login
-  </a>
+  </Link>
 
-  <a href="#" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <Link to="/signup" className="px-4 py-2 rounded-md hover:bg-blue-500 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
     Sign Up
-  </a>
+  </Link>
 
-  <a href="#" className="px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-gray-200 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
+  <Link to="/register-clinic" className="px-4 py-2 bg-white text-blue-600 rounded-md hover:bg-gray-200 hover:scale-105 hover:shadow-lg transform transition duration-200 cursor-pointer">
     Register Clinic
-  </a>
+  </Link>
 
 </div>
       </div>
