@@ -8,6 +8,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup"
 import RegisterClinic from "./pages/RegisterClinic"
 import Footer from "./components/Footer"
+import ForgotPassword from "./pages/ForgotPassword"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/register-clinic" element={<RegisterClinic />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </main>
     <Footer />
