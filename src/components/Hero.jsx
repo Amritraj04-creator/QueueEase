@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import heroImage from "../assets/hero.png"
 
 function Hero() {
   return (
@@ -41,9 +42,11 @@ function Hero() {
 
           {/* Right Side Illustration */}
           <div className="flex justify-center">
-            <div className="w-80 h-80 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-              Illustration
-            </div>
+            <img
+               src={heroImage}
+               alt="QueueEase Illustration"
+               className="w-full "
+              />
           </div>
 
         </div>

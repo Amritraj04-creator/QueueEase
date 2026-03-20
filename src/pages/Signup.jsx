@@ -1,6 +1,62 @@
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 function Signup() {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  });
+
+  const [error, setError] = useState("");
+
+  // Handle input change
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  // Email validation
+  const isValidEmail = (email) => {
+    return /\S+@\S+\.\S+/.test(email);
+  };
+
+  // Handle signup
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    const { name, email, password, confirmPassword } = form;
+
+    // Check empty fields
+    if (!name || !email || !password || !confirmPassword) {
+      setError("All fields are required");
+      return;
+    }
+
+    // Email format
+    if (!isValidEmail(email)) {
+      setError("Enter a valid email");
+      return;
+    }
+
+    // Password match
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    // Clear error
+    setError("");
+
+    // Redirect to dashboard
+    navigate("/dashboard");
+  };
+
   return (
     <section className="bg-gray-50 min-h-screen flex items-center justify-center">
 
@@ -10,7 +66,13 @@ function Signup() {
           Create Your Account
         </h1>
 
-        <form className="space-y-4">
+        {error && (
+          <p className="text-red-500 text-center mb-4">
+            {error}
+          </p>
+        )}
+
+        <form onSubmit={handleSignup} className="space-y-4">
 
           <div>
             <label className="block text-gray-700 mb-1">
@@ -18,7 +80,10 @@ function Signup() {
             </label>
             <input
               type="text"
+              name="name"
               placeholder="Enter your name"
+              value={form.name}
+              onChange={handleChange}
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -29,7 +94,10 @@ function Signup() {
             </label>
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
+              value={form.email}
+              onChange={handleChange}
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -40,7 +108,10 @@ function Signup() {
             </label>
             <input
               type="password"
+              name="password"
               placeholder="Enter password"
+              value={form.password}
+              onChange={handleChange}
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -51,7 +122,10 @@ function Signup() {
             </label>
             <input
               type="password"
+              name="confirmPassword"
               placeholder="Confirm password"
+              value={form.confirmPassword}
+              onChange={handleChange}
               className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -75,7 +149,7 @@ function Signup() {
       </div>
 
     </section>
-  )
+  );
 }
 
-export default Signup
+export default Signup;

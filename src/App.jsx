@@ -9,6 +9,7 @@ import Signup from "./pages/Signup"
 import RegisterClinic from "./pages/RegisterClinic"
 import Footer from "./components/Footer"
 import ForgotPassword from "./pages/ForgotPassword"
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register-clinic" element={<RegisterClinic />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
