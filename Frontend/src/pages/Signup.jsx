@@ -27,35 +27,55 @@ function Signup() {
   };
 
   // Handle signup
-  const handleSignup = (e) => {
-    e.preventDefault();
+  const handleSignup = async (e) => {
+  e.preventDefault();
 
-    const { name, email, password, confirmPassword } = form;
+  const { name, email, password, confirmPassword } = form;
 
-    // Check empty fields
-    if (!name || !email || !password || !confirmPassword) {
-      setError("All fields are required");
+  // Validation
+  if (!name || !email || !password || !confirmPassword) {
+    setError("All fields are required");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    setError("Enter a valid email");
+    return;
+  }
+
+  if (password !== confirmPassword) {
+    setError("Passwords do not match");
+    return;
+  }
+
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, password }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setError(data.message);
       return;
     }
 
-    // Email format
-    if (!isValidEmail(email)) {
-      setError("Enter a valid email");
-      return;
-    }
+    // Success
+    alert("Signup successful 🎉");
 
-    // Password match
-    if (password !== confirmPassword) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    // Clear error
-    setError("");
-
-    // Redirect to dashboard
+    // Redirect after success
+    localStorage.setItem("isNewUser", "true");
     navigate("/dashboard");
-  };
+
+  } catch (error) {
+    console.error(error);
+    setError("Server error. Try again later.");
+  }
+};
 
   return (
     <section className="bg-gray-50 min-h-screen flex items-center justify-center">

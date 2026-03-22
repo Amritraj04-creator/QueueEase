@@ -10,6 +10,7 @@ import RegisterClinic from "./pages/RegisterClinic"
 import Footer from "./components/Footer"
 import ForgotPassword from "./pages/ForgotPassword"
 import Dashboard from "./pages/Dashboard";
+import ClinicDashboard from './pages/ClinicDashboard'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/register-clinic" element={<RegisterClinic />} />
+        <Route path="clinic-dashboard" element={<ClinicDashboard />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </main>

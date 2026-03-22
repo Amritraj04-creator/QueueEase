@@ -1,4 +1,19 @@
+import { useEffect, useState } from "react";
+
 function Dashboard() {
+  const [isNewUser, setIsNewUser] = useState(false);
+
+  useEffect(() => {
+    const newUser = localStorage.getItem("isNewUser");
+
+    if (newUser === "true") {
+      setIsNewUser(true);
+
+      // Remove flag after showing once
+      localStorage.removeItem("isNewUser");
+    }
+  }, []);
+
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
 
@@ -7,9 +22,16 @@ function Dashboard() {
         <h1 className="text-2xl font-bold">
           Welcome 👋
         </h1>
-        <p className="text-gray-600 mt-2">
-          Book your first appointment and skip the queue.
-        </p>
+
+        {isNewUser ? (
+          <p className="text-green-600 mt-2 font-medium">
+            🎉 Welcome to QueueEase! Book your first appointment and skip the queue.
+          </p>
+        ) : (
+          <p className="text-gray-600 mt-2">
+            Manage your appointments and track your queue status.
+          </p>
+        )}
       </div>
 
       {/* Quick Actions */}
